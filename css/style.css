@@ -9,6 +9,7 @@
     --clr-white: 0 0% 100%;
 
     --ff-primary: 'Bellefair', serif;
+    --ff-designSystem: 'Barlow', sans-serif;
 }
 
 /* ----------------------- */
@@ -147,6 +148,24 @@ select {
 }
 .text-white {
     color: hsl(var(--clr-white));
+}
+
+.flex--grow { 
+    flex-grow: 1;
+}
+
+.padding--space {
+    padding: 3rem 1rem 1rem;
+    border: 1px solid #ffffff;
+}
+
+.padding--space-2 {
+    padding: 3rem 1rem 1rem;
+    border: 1px solid #d0d6f9;
+}
+
+.design-text {
+    font-family: 'Barlow', sans-serif;
 }
 
 
