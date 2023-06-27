@@ -158,7 +158,6 @@ select {
     --flow-space: .75rem;
 }
 
-
 .visually--hidden {
   position: absolute;
   width: 1px;
@@ -275,7 +274,7 @@ select {
     z-index: 1;
     display: inline-grid;
     place-items: center;
-    padding: 0 2rem;
+    padding: 0 2em;
     border-radius: 50%;
     aspect-ratio: 1;
     text-decoration: none;
@@ -299,6 +298,10 @@ select {
     transform: scale(1.5);
 }
 
+/* ---------------------- */
+/* HEADER                 */
+/*----------------------- */
+
 .primary-navigation {
     --gap: clamp(1.5rem, 5vw, 3.5rem);
     --underline-gap: 2rem;
@@ -320,7 +323,7 @@ select {
 
 .underline-indicators > * {
     cursor: pointer;
-    padding: var(--underline-gap .5rem) 0;
+    padding: var(--underline-gap, 1rem) 0;
     border: 0;
     border-bottom: .2rem solid hsl(var(--clr-white) / 0);
     background-color: transparent;
@@ -328,7 +331,7 @@ select {
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-    border-color: hsl(var(--clr-white) / .05);
+    border-color: hsl(var(--clr-white) / .5);
 }
 
 .underline-indicators > .active,
