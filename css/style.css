@@ -13,12 +13,12 @@
 
   --fs-200: 0.875rem;
   --fs-300: 1rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-500: 1.75rem;
-  --fs-600: 2rem;
-  --fs-700: 3.5rem;
-  --fs-800: 6.25rem;
-  --fs-900: 9.375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.5rem;
+  --fs-800: 3.5rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
 
   /* font families */
 
@@ -26,6 +26,29 @@
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-norm: "Barlow", sans-serif;
 }
+
+@media (min-width: 35em) {
+  :root {
+     /* font sizes */
+
+     --fs-400: 1rem;
+     --fs-600: 1.5rem;
+     --fs-700: 2.5rem;
+     --fs-800: 5rem;
+     --fs-900: 9.375rem;
+  }
+}
+
+  @media (min-width: 45em) {
+    :root {
+      /* font sizes */
+
+      --fs-400: 1.125rem;
+      --fs-600: 2rem;
+      --fs-700: 3.5rem;
+      --fs-800: 6.25rem;
+    }
+  }
 
 /* ----------------------- */
 /* CSS RESET               */
@@ -58,9 +81,8 @@ h2,
 h3,
 h4,
 h5,
-h6
-p {
-    font-weight: 400;
+h6 p {
+  font-weight: 400;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -146,16 +168,38 @@ select {
   max-width: 80rem;
 }
 
+.grid-wrapper {
+  display: grid;
+}
+
+@media (min-width: 45em) {
+  .grid-wrapper {
+    column-gap: var(--wrapper-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-wrapper > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-wrapper > *:last-child {
+    grid-column: 3;
+  }
+}
+
 .d-block {
-    display: block;
+  display: block;
 }
 
 .flow > *:where(:not(:first-child)) {
-    margin-top: var(--flow-space, 1rem);
+  margin-top: var(--flow-space, 1rem);
 }
 
 .flow--space-small {
-    --flow-space: .75rem;
+  --flow-space: 0.75rem;
 }
 
 .visually--hidden {
@@ -171,18 +215,17 @@ select {
 }
 
 .numbered-title {
-    font-family: var(--ff-sans-cond);
-    font-size: var(--fs-500);
-    text-transform: uppercase;
-    letter-spacing: 4.72px; 
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
 }
 
 .numbered-title span {
-    margin-right: .5em;
-    font-weight: 700;
-    color: hsl( var(--clr-white) / .25);
+  margin-right: 0.5em;
+  font-weight: 700;
+  color: hsl(var(--clr-white) / 0.25);
 }
-
 
 /* colors */
 
@@ -269,33 +312,33 @@ select {
 /*----------------------- */
 
 .large-button {
-    font-size: 2rem;
-    position: relative;
-    z-index: 1;
-    display: inline-grid;
-    place-items: center;
-    padding: 0 2em;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    text-decoration: none;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
 }
 
 .large-button::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background: hsl(var(--clr-white) / .1);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 500ms linear, transform 750ms ease-in-out;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--clr-white) / 0.1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
 }
 
 .large-button:hover::after,
 .large-button:focus::after {
-    opacity: 1;
-    transform: scale(1.5);
+  opacity: 1;
+  transform: scale(1.5);
 }
 
 /* ---------------------- */
@@ -303,62 +346,60 @@ select {
 /*----------------------- */
 
 .primary-navigation {
-    --gap: clamp(1.5rem, 5vw, 3.5rem);
-    --underline-gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: hsl(var(--clr-white) / .05);
-    backdrop-filter: blur(1.5rem);
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /*background: hsl(var(--clr-white) / .05);
+    backdrop-filter: blur(1.5rem);*/
 }
 
 .primary-navigation a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .primary-navigation a > span {
-    font-weight: 700;
-    margin-right: .5em;
+  font-weight: 700;
+  margin-right: 0.5em;
 }
 
 .underline-indicators > * {
-    cursor: pointer;
-    padding: var(--underline-gap, 1rem) 0;
-    border: 0;
-    border-bottom: .2rem solid hsl(var(--clr-white) / 0);
-    background-color: transparent;
+  cursor: pointer;
+  padding: var(--underline-gap, 1rem) 0;
+  border: 0;
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+  background-color: transparent;
 }
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-    border-color: hsl(var(--clr-white) / .5);
+  border-color: hsl(var(--clr-white) / 0.5);
 }
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
-    color: hsl(var(--clr-white) / 1);
-    border-color: hsl(var(--clr-white) / 1);
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
 }
 
 .tab-list {
-    --gap: 2rem;
+  --gap: 2rem;
 }
 
 .dot-indicators > * {
-    cursor: pointer;
-    border: 0;
-    border-radius: 50%;
-    padding: .5em;
-    background-color: hsl( var(--clr-white) / .25);
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  padding: 0.5em;
+  background-color: hsl(var(--clr-white) / 0.25);
 }
 
 .dot-indicators > *:hover,
 .dot-indicators > *:focus {
-    background-color: hsl(var(--clr-white) / .5);
+  background-color: hsl(var(--clr-white) / 0.5);
 }
 
 .dot-indicators > [aria-selected="true"] {
-    background-color: hsl(var(--clr-white) / 1);
+  background-color: hsl(var(--clr-white) / 1);
 }
-
-
