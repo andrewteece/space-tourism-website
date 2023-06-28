@@ -98,6 +98,8 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
+  display: grid;
+  grid-template-rows: min-content 1fr;
   font-family: var(--ff-sans-norm);
   font-size: var(--fs-400);
   background-color: hsl(var(--clr-dark));
@@ -105,8 +107,6 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  display: grid;
-  grid-template-rows: min-content 1fr;
   overflow-x: hidden;
 }
 
@@ -170,6 +170,14 @@ select {
 
 .grid-wrapper {
   display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 4rem;
+}
+
+.grid-wrapper p:not([class]) {
+  max-width: 50ch;
 }
 
 @media (min-width: 45em) {
@@ -187,6 +195,11 @@ select {
 
   .grid-wrapper > *:last-child {
     grid-column: 3;
+  }
+
+  .grid-wrapper--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -342,7 +355,7 @@ select {
 }
 
 /* ---------------------- */
-/* HEADER                 */
+/* HEADER  & NAV          */
 /*----------------------- */
 
 .primary-navigation {
@@ -362,6 +375,11 @@ select {
 .primary-navigation a > span {
   font-weight: 700;
   margin-right: 0.5em;
+}
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .underline-indicators > * {
@@ -402,4 +420,17 @@ select {
 
 .dot-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-white) / 1);
+}
+
+/* ---------------------- */
+/* Pages                  */
+/*----------------------- */
+
+
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+.home {
+  background-image: url(/starter-code/assets/home/background-home-mobile.jpg);
 }
