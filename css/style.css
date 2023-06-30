@@ -576,7 +576,7 @@ body {
 
 /* destination layout */
 
-.grid-container--destination {
+.grid-wrapper--destination {
   --flow-space: 2rem;
   grid-template-areas:
     "title"
@@ -585,17 +585,17 @@ body {
     "content";
 }
 
-.grid-container--destination > picture {
+.grid-wrapper--destination > picture {
   grid-area: image;
   max-width: 60%;
   align-self: start;
 }
 
-.grid-container--destination > .tab-list {
+.grid-wrapper--destination > .tab-list {
   grid-area: tabs;
 }
 
-.grid-container--destination > .destination-info {
+.grid-wrapper--destination > .destination-info {
   grid-area: content;
 }
 
