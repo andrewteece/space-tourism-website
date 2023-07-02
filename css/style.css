@@ -488,7 +488,7 @@ select {
 
 .underline-indicators > * {
   cursor: pointer;
-  padding: var(--underline-gap, .5rem) 0;
+  padding: var(--underline-gap, 0.5rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
   background-color: transparent;
@@ -590,7 +590,6 @@ body {
   }
 }
 
-
 /* destination layout */
 
 .grid-wrapper--destination {
@@ -626,8 +625,6 @@ body {
 .destination-meta p {
   font-size: 1.75rem;
 }
-
-
 
 /* crew layout */
 
@@ -722,17 +719,21 @@ body {
   }
 
   .grid-wrapper--crew {
-    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(
+        1rem,
+        1fr
+      );
     justify-items: start;
-    grid-template-areas: 
-        '. title title .'
-        '. content image .'
-        '. tabs image .';
+    grid-template-areas:
+      ". title title ."
+      ". content image ."
+      ". tabs image .";
+  }
+
+  .grid-wrapper--crew > picture {
+    grid-column: span 2;
+    align-self: end;
+    max-width: 90%;
+  }
 }
 
-.grid-wrapper--crew > picture {
-    grid-column: span 2;
-    align-self: end; 
-    max-width: 90%;
-}
-}
